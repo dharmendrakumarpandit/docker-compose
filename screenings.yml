@@ -59,7 +59,7 @@ services:
     expose:
       - "27017"
     volumes:
-      - /home/ubuntu/data/vrcms:/data/db
+      - /home/ubuntu/data/mongo:/data/db
 
   eureka:
     image: springcloud/eureka
