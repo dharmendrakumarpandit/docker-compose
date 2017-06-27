@@ -86,8 +86,8 @@ services:
         - MYSQL_USER=dbuser
         - MYSQL_PASSWORD=password
         - MYSQL_DATABASE=interview
-     volumes:
-       - /home/ubuntu/data/mysql:/var/lib/mysql
+      volumes:
+        - /home/ubuntu/data/mysql:/var/lib/mysql
   #    working_dir: "/home/scripts"
       networks:
         - my-network
