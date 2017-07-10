@@ -42,6 +42,8 @@ services:
       - "8083:8083"
     expose:
       - "8083"
+    volumes:
+      - /ubuntu/home/tool:/target/os/linux/
     depends_on:
       - eureka
       
