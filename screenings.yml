@@ -1,3 +1,4 @@
+
 version: "2"
 
 services:
@@ -24,6 +25,8 @@ services:
       - "8081"
     depends_on:
       - interview-db
+      - mongo
+      - redis
       - eureka
     environment:
       - SPRING_PROFILES_ACTIVE=container
@@ -38,6 +41,7 @@ services:
       - "8084"
     depends_on:
       - interview-db
+      - mongo
       - redis
       - eureka
     environment:
