@@ -6,9 +6,9 @@ services:
     networks:
       - my-network
     ports:
-      - "8080:8080"
+      - "8080:80"
     expose:
-      - "8080"
+      - "80"
     depends_on:
       - eureka
     environment:
