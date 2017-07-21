@@ -143,7 +143,7 @@ services:
         - MYSQL_PASSWORD=password
         - MYSQL_DATABASE=candidate
       volumes:
-        - /home/ubuntu/data/mysql:/var/lib/mysql2
+        - /home/ubuntu/data/mysql2:/var/lib/mysql
   #    working_dir: "/home/scripts"
       networks:
         - my-network
