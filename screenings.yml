@@ -40,9 +40,9 @@ services:
     expose:
       - "8084"
     depends_on:
-      - interview-db
+      - assessment-db
       - mongo
-      - redis
+      - assessment-redis
       - eureka
     environment:
       - SPRING_PROFILES_ACTIVE=container
@@ -80,7 +80,8 @@ services:
     image: nexus.techolution.com:8123/screenings/candidate-server
     networks:
       - my-network
-    ports:
+
+ports:
       - "8085:8085"
     expose:
       - "8085"
@@ -118,6 +119,14 @@ services:
       - "6379:6379"
     expose:
       - "6379"
+  assessment-redis:
+    image: redis
+    networks:
+      - my-network
+    ports:
+      - "6380:6379"
+    expose:
+      - "6380"
 
   interview-db:
       image: mysql:latest
@@ -151,6 +160,21 @@ services:
         - "3305:3306"
       expose:
         - "3305"
+assessment-db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=assessment
+    volumes:
+      - /home/ubuntu/data/mysql2:/var/lib/mysql
+    networks:
+      - my-network
+    ports:
+      - "3304:3306"
+    expose:
+      - "3304"
 
 networks:
   my-network:
